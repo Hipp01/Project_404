@@ -20,13 +20,14 @@ def main():
     date_actuelle = datetime.now().date()
 
     if (date_actuelle.day, date_actuelle.month) in days:
+        repo = git.Repo("./")
+        repo.git.pull()
         day = days.index((date_actuelle.day, date_actuelle.month)) + 1
         text_day = text2art("Day " + str(day), "colossal")
         readme_content = "<pre>\n" + text_day + "</pre>"
         readme = "README.md"
         with open(readme, "w") as file:
             file.write(readme_content)
-        repo = git.Repo("./")
         repo.git.add(".")
         repo.git.commit("-m", f"Day {day}")
         origin = repo.remote(name="origin")
