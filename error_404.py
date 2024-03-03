@@ -20,7 +20,7 @@ def main():
     date_actuelle = datetime.now().date()
 
     if (date_actuelle.day, date_actuelle.month) in days:
-        day = days.index((date_actuelle.day, date_actuelle.month))
+        day = days.index((date_actuelle.day, date_actuelle.month)) + 1
         text_day = text2art("Day " + str(day), "colossal")
         readme_content = "<pre>\n" + text_day + "</pre>"
         readme = "README.md"
