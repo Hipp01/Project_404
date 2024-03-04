@@ -21,7 +21,6 @@ def main():
 
     if (date_actuelle.day, date_actuelle.month) in days:
         repo = git.Repo("./")
-        repo.git.pull()
         day = days.index((date_actuelle.day, date_actuelle.month)) + 1
         for i in range(4):
             repo.git.add(".")
