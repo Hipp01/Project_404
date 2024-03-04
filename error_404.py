@@ -23,6 +23,11 @@ def main():
         repo = git.Repo("./")
         repo.git.pull()
         day = days.index((date_actuelle.day, date_actuelle.month)) + 1
+        for i in range(4):
+            repo.git.add(".")
+            repo.git.commit("-m", f"Day {day} - {i}")
+            origin = repo.remote(name="origin")
+            origin.push()
         text_day = text2art("Day " + str(day), "colossal")
         readme_content = "<pre>\n" + text_day + "</pre>"
         readme = "README.md"
