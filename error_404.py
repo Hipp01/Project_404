@@ -24,7 +24,7 @@ def main():
         repo.git.pull()
         day = days.index((date_actuelle.day, date_actuelle.month)) + 1
         readme = "README.md"
-        for i in range(3):
+        for i in range(4):
             with open(readme, "w") as file:
                 file.write("commit - " + str(i))
             repo.git.add(".")
